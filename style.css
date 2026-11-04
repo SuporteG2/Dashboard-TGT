@@ -19,6 +19,7 @@
   --jul: #e67e22; /* Cor para Julho */
   --ago: #c0392b; /* Cor para Agosto */
   --set: #16a085; /* Cor para Setembro */
+  --out: #d4a017; /* Cor para Outubro */
 }
 
 * {
@@ -250,6 +251,9 @@ header {
 .mcard.set {
   border-top-color: var(--set);
 }
+.mcard.out {
+  border-top-color: var(--out);
+}
 
 .mcard-title {
   font-size: 0.72rem;
@@ -284,6 +288,9 @@ header {
 }
 .mcard.set .mcard-title {
   color: var(--set);
+}
+.mcard.out .mcard-title {
+  color: var(--out);
 }
 
 .mstat {
@@ -491,6 +498,10 @@ header {
 .pill.set {
   background: rgba(22, 160, 133, 0.11);
   color: var(--set);
+}
+.pill.out {
+  background: rgba(212, 160, 23, 0.11);
+  color: var(--out);
 }
 
 /* ── FOOTER ──────────────────────────────── */

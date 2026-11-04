@@ -303,6 +303,48 @@ const SET = [
 ];
 
 // ════════════════════════════════════════════════════
+// DADOS COMPLETOS — OUTUBRO
+// ════════════════════════════════════════════════════
+const OUT = [
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Luiz Pelais" },
+  { cat: "SharePoint", fin: "Sim", h: 0.5, ana: "Leonardo" },
+  { cat: "Segurança", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Financeiro", fin: "Sim", h: 0.5, ana: "Leonardo" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Leonardo" },
+  { cat: "Windows", fin: "Sim", h: 0.5, ana: "Leonardo" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Guilherme Melo" },
+  { cat: "Segurança", fin: "Sim", h: 2, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 1.5, ana: "Hamilton" },
+  { cat: "Segurança", fin: "Sim", h: 4, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Guilherme Melo" },
+  { cat: "Hospedagem", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Hospedagem", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 3, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 1.5, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Leonardo" },
+  { cat: "SharePoint", fin: "Sim", h: 0.5, ana: "Guilherme Melo" },
+  { cat: "Hospedagem", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 1, ana: "Hamilton" },
+  { cat: "Internet", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Segurança", fin: "Sim", h: 1.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Internet", fin: "Sim", h: 1, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Software", fin: "Sim", h: 0.5, ana: "Leonardo" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Guilherme Melo" },
+  { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+];
+
+// ════════════════════════════════════════════════════
 // FUNÇÕES AUXILIARES
 // ════════════════════════════════════════════════════
 const sumH = (a) => +a.reduce((s, r) => s + r.h, 0).toFixed(1);
@@ -350,8 +392,9 @@ const jT = JAN.length,
   junT = JUN.length,
   julT = JUL.length,
   agoT = AGO.length,
-  setT = SET.length;
-const total = jT + fT + mT + aT + maT + junT + julT + agoT + setT;
+  setT = SET.length,
+  outT = OUT.length;
+const total = jT + fT + mT + aT + maT + junT + julT + agoT + setT + outT;
 
 const jFin = countFin(JAN, "SIM"),
   fFin = countFin(FEV, "SIM"),
@@ -361,7 +404,8 @@ const jFin = countFin(JAN, "SIM"),
   junFin = countFin(JUN, "SIM"),
   julFin = countFin(JUL, "SIM"),
   agoFin = countFin(AGO, "SIM"),
-  setFin = countFin(SET, "SIM");
+  setFin = countFin(SET, "SIM"),
+  outFin = countFin(OUT, "SIM");
 
 const jNF = countFin(JAN, "NÃO"),
   fNF = countFin(FEV, "NÃO"),
@@ -371,10 +415,11 @@ const jNF = countFin(JAN, "NÃO"),
   junNF = countFin(JUN, "NÃO"),
   julNF = countFin(JUL, "NÃO"),
   agoNF = countFin(AGO, "NÃO"),
-  setNF = countFin(SET, "NÃO");
+  setNF = countFin(SET, "NÃO"),
+  outNF = countFin(OUT, "NÃO");
 
 const totalFin =
-  jFin + fFin + mFin + aFin + maFin + junFin + julFin + agoFin + setFin;
+  jFin + fFin + mFin + aFin + maFin + junFin + julFin + agoFin + setFin + outFin;
 const taxa = total > 0 ? Math.round((totalFin / total) * 100) : 0;
 
 const jH = sumH(JAN),
@@ -385,9 +430,10 @@ const jH = sumH(JAN),
   junH = sumH(JUN),
   julH = sumH(JUL),
   agoH = sumH(AGO),
-  setH = sumH(SET);
+  setH = sumH(SET),
+  outH = sumH(OUT);
 const totalH = +(
-  jH + fH + mH + aH + maH + junH + julH + agoH + setH
+  jH + fH + mH + aH + maH + junH + julH + agoH + setH + outH
 ).toFixed(1);
 
 const jCM = catMap(JAN),
@@ -398,7 +444,8 @@ const jCM = catMap(JAN),
   junCM = catMap(JUN),
   julCM = catMap(JUL),
   agoCM = catMap(AGO),
-  setCM = catMap(SET);
+  setCM = catMap(SET),
+  outCM = catMap(OUT);
 const allCM = catMap([
   ...JAN,
   ...FEV,
@@ -409,6 +456,7 @@ const allCM = catMap([
   ...JUL,
   ...AGO,
   ...SET,
+  ...OUT,
 ]);
 
 const jAM = anaMap(JAN),
@@ -419,7 +467,8 @@ const jAM = anaMap(JAN),
   junAM = anaMap(JUN),
   julAM = anaMap(JUL),
   agoAM = anaMap(AGO),
-  setAM = anaMap(SET);
+  setAM = anaMap(SET),
+  outAM = anaMap(OUT);
 const allAM = anaMap([
   ...JAN,
   ...FEV,
@@ -430,6 +479,7 @@ const allAM = anaMap([
   ...JUL,
   ...AGO,
   ...SET,
+  ...OUT,
 ]);
 
 const top10 = topN(allCM, 10);
@@ -445,6 +495,7 @@ const meses = [
   { n: "Julho", v: julT },
   { n: "Agosto", v: agoT },
   { n: "Setembro", v: setT },
+  { n: "Outubro", v: outT },
 ];
 const topMes = [...meses].sort((a, b) => b.v - a.v)[0];
 
@@ -526,6 +577,13 @@ document.getElementById("kCatSub").textContent = top10[0][1] + " ocorrências";
   ["set5", topKey(setAM)],
   ["set6", topKey(setCM)],
   ["set7", "19 dias"],
+  ["out1", outT],
+  ["out2", outFin],
+  ["out3", outNF],
+  ["out4", outH + "h"],
+  ["out5", topKey(outAM)],
+  ["out6", topKey(outCM)],
+  ["out7", "17 dias"],
 ].forEach(([id, val]) => {
   const el = document.getElementById(id);
   if (el) el.textContent = val;
@@ -548,6 +606,7 @@ const junC = "#9900cc";
 const julC = "#e67e22";
 const agoC = "#c0392b";
 const setC = "#16a085";
+const outC = "#d4a017";
 
 // ─── VOLUME POR MÊS ──────────────────────────────
 new Chart(document.getElementById("cVolume"), {
@@ -563,11 +622,12 @@ new Chart(document.getElementById("cVolume"), {
       "Julho",
       "Agosto",
       "Setembro",
+      "Outubro",
     ],
     datasets: [
       {
         label: "Chamados",
-        data: [jT, fT, mT, aT, maT, junT, julT, agoT, setT],
+        data: [jT, fT, mT, aT, maT, junT, julT, agoT, setT, outT],
         backgroundColor: [
           janC,
           fevC,
@@ -578,6 +638,7 @@ new Chart(document.getElementById("cVolume"), {
           julC,
           agoC,
           setC,
+          outC,
         ],
         borderRadius: 8,
         borderSkipped: false,
@@ -609,11 +670,12 @@ new Chart(document.getElementById("cHoras"), {
       "Julho",
       "Agosto",
       "Setembro",
+      "Outubro",
     ],
     datasets: [
       {
         label: "Horas",
-        data: [jH, fH, mH, aH, maH, junH, julH, agoH, setH],
+        data: [jH, fH, mH, aH, maH, junH, julH, agoH, setH, outH],
         backgroundColor: [
           "rgba(0,51,102,.85)",
           "rgba(0,80,158,.85)",
@@ -624,6 +686,7 @@ new Chart(document.getElementById("cHoras"), {
           "rgba(230,126,34,.85)",
           "rgba(192,57,43,.85)",
           "rgba(22,160,133,.85)",
+          "rgba(212,160,23,.85)",
         ],
         borderRadius: 8,
         borderSkipped: false,
@@ -683,7 +746,7 @@ new Chart(document.getElementById("cCats"), {
 // ─── ANALISTAS — BARRAS CUSTOMIZADAS ─────────────
 const anaDiv = document.getElementById("anaDiv");
 const anaMax = Math.max(...Object.values(allAM));
-const anaColors = [janC, fevC, marC, abrC, maiC, junC, julC, agoC, setC];
+const anaColors = [janC, fevC, marC, abrC, maiC, junC, julC, agoC, setC, outC];
 let anaIdx = 0;
 
 anaDiv.innerHTML = "";
@@ -715,18 +778,21 @@ new Chart(document.getElementById("cStatus"), {
       "Julho",
       "Agosto",
       "Setembro",
+      "Outubro",
     ],
     datasets: [
       {
         label: "Finalizados",
-        data: [jFin, fFin, mFin, aFin, maFin, junFin, julFin, agoFin, setFin],
+        data: [
+          jFin, fFin, mFin, aFin, maFin, junFin, julFin, agoFin, setFin, outFin,
+        ],
         backgroundColor: marC,
         borderRadius: 6,
         borderSkipped: false,
       },
       {
         label: "Não Finalizados",
-        data: [jNF, fNF, mNF, aNF, maNF, junNF, julNF, agoNF, setNF],
+        data: [jNF, fNF, mNF, aNF, maNF, junNF, julNF, agoNF, setNF, outNF],
         backgroundColor: "#f4714a",
         borderRadius: 6,
         borderSkipped: false,
@@ -846,6 +912,13 @@ new Chart(document.getElementById("cCompare"), {
         borderRadius: 5,
         borderSkipped: false,
       },
+      {
+        label: "Outubro",
+        data: top6keys.map((k) => outCM[k] || 0),
+        backgroundColor: outC,
+        borderRadius: 5,
+        borderSkipped: false,
+      },
     ],
   },
   options: {
@@ -909,6 +982,7 @@ if (topUsersDiv) {
       ...Object.keys(julCM),
       ...Object.keys(agoCM),
       ...Object.keys(setCM),
+      ...Object.keys(outCM),
     ]),
   ];
 
@@ -924,6 +998,7 @@ if (topUsersDiv) {
       jul: julCM[cat] || 0,
       ago: agoCM[cat] || 0,
       set: setCM[cat] || 0,
+      out: outCM[cat] || 0,
       tot:
         (jCM[cat] || 0) +
         (fCM[cat] || 0) +
@@ -933,7 +1008,8 @@ if (topUsersDiv) {
         (junCM[cat] || 0) +
         (julCM[cat] || 0) +
         (agoCM[cat] || 0) +
-        (setCM[cat] || 0),
+        (setCM[cat] || 0) +
+        (outCM[cat] || 0),
     }))
     .sort((a, b) => b.tot - a.tot)
     .slice(0, 15);
@@ -946,7 +1022,7 @@ if (topUsersDiv) {
       <tr>
         <th>#</th>
         <th>Categoria</th>
-        <th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Set</th>
+        <th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Mai</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Set</th><th>Out</th>
         <th>Total</th>
         <th>Distribuição</th>
       </tr>
@@ -967,6 +1043,7 @@ if (topUsersDiv) {
           <td>${r.jul > 0 ? `<span class="pill jul">${r.jul}</span>` : "—"}</td>
           <td>${r.ago > 0 ? `<span class="pill ago">${r.ago}</span>` : "—"}</td>
           <td>${r.set > 0 ? `<span class="pill set">${r.set}</span>` : "—"}</td>
+          <td>${r.out > 0 ? `<span class="pill out">${r.out}</span>` : "—"}</td>
           <td style="font-weight:800;color:var(--text)">${r.tot}</td>
           <td>
             <div style="background:var(--card2);border-radius:4px;height:6px;width:120px;overflow:hidden;display:inline-block;vertical-align:middle">
