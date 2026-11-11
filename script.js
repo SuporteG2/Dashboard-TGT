@@ -342,6 +342,7 @@ const OUT = [
   { cat: "Software", fin: "Sim", h: 0.5, ana: "Leonardo" },
   { cat: "MS365", fin: "Sim", h: 0.5, ana: "Guilherme Melo" },
   { cat: "MS365", fin: "Sim", h: 0.5, ana: "Hamilton" },
+  { cat: "Segurança", fin: "Sim", h: 1, ana: "Hamilton" },
 ];
 
 // ════════════════════════════════════════════════════
